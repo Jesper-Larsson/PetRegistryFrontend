@@ -1,7 +1,7 @@
 const SearchBar = () => {
   return (
     <div>
-      <input type="text" placeholder="Search for owner" />
+      <input type="text" placeholder="Search for owner och pet" />
       <button>Search</button>
     </div>
   );

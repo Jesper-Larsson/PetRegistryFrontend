@@ -2,17 +2,24 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 const AllOwners = () => {
-  const [allOwners, setAllOwners] = useState<Owner[]>([]);
+  const [allOwners, setAllOwners] = useState<PetOwner[]>([]);
   const [isError, setIsError] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     fetch("https://localhost:7127/api/petregistry")
       .then((response) => response.json())
-      .then((data) => setAllOwners(data))
+      .then((data) => {
+        setAllOwners(data);
+        setIsLoading(false);
+      })
       .catch((error) => setIsError(true));
   }, []);
   if (isError) {
     return <div>An error occured when fetching data. :(</div>;
+  }
+  if (isLoading) {
+    return <div>Loading...</div>;
   }
   return (
     <div>
@@ -30,7 +37,7 @@ const AllOwners = () => {
 
 export default AllOwners;
 
-interface Owner {
+interface PetOwner {
   id: number;
   firstName: string;
   lastName: string;
