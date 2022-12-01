@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import PetOwner from "./PetOwner";
 
 const AllOwners = () => {
   const [allOwners, setAllOwners] = useState<PetOwner[]>([]);
@@ -28,7 +29,7 @@ const AllOwners = () => {
         <div key={id}>
           <div>{owner.firstName}</div>
           <div>{owner.lastName}</div>
-          <Link to={"/edit/" + owner.id}>open</Link>
+          <Link to={`/edit/${owner.id}`}>open</Link>
         </div>
       ))}
     </div>
@@ -36,9 +37,3 @@ const AllOwners = () => {
 };
 
 export default AllOwners;
-
-interface PetOwner {
-  id: number;
-  firstName: string;
-  lastName: string;
-}

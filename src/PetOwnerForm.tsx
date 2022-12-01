@@ -1,7 +1,8 @@
+import PetOwner from "./PetOwner";
+import Pet from "./Pet";
 import { useState } from "react";
 
 const PetOwnerForm = ({ petOwner, saveFunction }: PetOwnerProps) => {
-  console.log("petOwnerform");
   const [pets, setPets] = useState<Pet[]>(petOwner ? petOwner.pets : []);
   const [firstName, setFirstName] = useState<string>(
     petOwner ? petOwner.firstName : "First Name"
@@ -9,11 +10,9 @@ const PetOwnerForm = ({ petOwner, saveFunction }: PetOwnerProps) => {
   const [lastName, setLastName] = useState<string>(
     petOwner ? petOwner.lastName : "Last Name"
   );
-
   const addPetForm = () => {
     pets.push({ name: "Pet's Name" });
     const newPets = [...pets];
-    console.log("pet clixked");
     setPets(newPets);
   };
   const removePetForm = (petToRemove: Pet) => {
@@ -75,18 +74,6 @@ const PetOwnerForm = ({ petOwner, saveFunction }: PetOwnerProps) => {
 };
 
 export default PetOwnerForm;
-
-interface Pet {
-  id?: number;
-  name: string;
-}
-
-interface PetOwner {
-  id: number;
-  firstName: string;
-  lastName: string;
-  pets: Pet[];
-}
 
 interface PetOwnerProps {
   petOwner: PetOwner | undefined;

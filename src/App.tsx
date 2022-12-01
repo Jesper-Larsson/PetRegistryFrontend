@@ -8,6 +8,7 @@ import EditOwner from "./EditOwner";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import StartPage from "./StartPage";
 import NavBar from "./NavBar";
+import SearcResults from "./SearchResults";
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
             <Route path="/all" element={<AllOwners />} />
             <Route path="/create" element={<CreateOwner />} />
             <Route path="/edit/:id" element={<EditOwner />} />
+            <Route path="/search/:searchTerm" element={<SearcResults />} />
             <Route path="/" element={<StartPage />} />
           </Routes>
         </Router>
