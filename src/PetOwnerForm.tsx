@@ -1,17 +1,18 @@
 import PetOwner from "./PetOwner";
 import Pet from "./Pet";
 import { useState } from "react";
+import Strings from "./Strings";
 
 const PetOwnerForm = ({ petOwner, saveFunction }: PetOwnerProps) => {
   const [pets, setPets] = useState<Pet[]>(petOwner ? petOwner.pets : []);
   const [firstName, setFirstName] = useState<string>(
-    petOwner ? petOwner.firstName : "First Name"
+    petOwner ? petOwner.firstName : Strings.firstNameText
   );
   const [lastName, setLastName] = useState<string>(
-    petOwner ? petOwner.lastName : "Last Name"
+    petOwner ? petOwner.lastName : Strings.lastNameText
   );
   const addPetForm = () => {
-    pets.push({ name: "Pet's Name" });
+    pets.push({ name: Strings.petNameText });
     const newPets = [...pets];
     setPets(newPets);
   };
@@ -34,41 +35,42 @@ const PetOwnerForm = ({ petOwner, saveFunction }: PetOwnerProps) => {
   };
   return (
     <div>
-      PetOwnerForm
       <div>
-        <div>First Name</div>
+        <div>{Strings.firstNameText}</div>
         <input
           type="text"
-          placeholder={petOwner ? petOwner.firstName : "First Name"}
+          placeholder={petOwner ? petOwner.firstName : Strings.firstNameText}
           onChange={(event) => setFirstName(event.target.value)}
         ></input>
       </div>
       <div>
-        <div>Last Name</div>
+        <div>Strings.lastNameText</div>
         <input
           type="text"
-          placeholder={petOwner ? petOwner.lastName : "Last Name"}
+          placeholder={petOwner ? petOwner.lastName : Strings.lastNameText}
           onChange={(event) => setLastName(event.target.value)}
         ></input>
       </div>
       <div>Pets:</div>
       {pets.map((pet, index) => {
         return (
-          <div>
-            <div>Pet Name</div>
+          <div key={index}>
+            <div>{Strings.petNameText}</div>
             <input
               type="text"
               placeholder={pet.name}
               onChange={(event) => changePetName(index, event.target.value)}
             />
             <div>
-              <button onClick={() => removePetForm(pet)}>remove</button>
+              <button onClick={() => removePetForm(pet)}>
+                {Strings.removePetText}
+              </button>
             </div>
           </div>
         );
       })}
-      <button onClick={addPetForm}>add pet</button>
-      <button onClick={saveToDb}>SAVE</button>
+      <button onClick={addPetForm}>{Strings.addPetText}</button>
+      <button onClick={saveToDb}>{Strings.saveText}</button>
     </div>
   );
 };
@@ -79,4 +81,3 @@ interface PetOwnerProps {
   petOwner: PetOwner | undefined;
   saveFunction(petOwner: PetOwner): void;
 }
-//TODO: send existing petOwnerAndPets as parameter and add ability to remove and add pets

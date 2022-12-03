@@ -1,17 +1,18 @@
 import { Link } from "react-router-dom";
+import Strings from "./Strings";
 
 const NavBar = () => {
   return (
     <nav>
       <ul>
         <li>
-          <Link to="/">Home</Link>
+          <Link to="/">{Strings.homeText}</Link>
         </li>
         <li>
-          <Link to="/all">All</Link>
+          <Link to="/all">{Strings.showAllText}</Link>
         </li>
         <li>
-          <Link to="/create">Add new</Link>
+          <Link to="/create">{Strings.addNewText}</Link>
         </li>
       </ul>
     </nav>

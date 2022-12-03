@@ -2,6 +2,8 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import PetOwnerForm from "./PetOwnerForm";
 import PetOwner from "./PetOwner";
+import { PutPetOwner, DeletePetOwner, GetOwnerById } from "./PetRegistryAPI";
+import Strings from "./Strings";
 const EditOwner = () => {
   const { id } = useParams();
 
@@ -9,11 +11,14 @@ const EditOwner = () => {
   const [isError, setIsError] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [hasUpdated, setHasUpdated] = useState(false);
+
   const deletePetOwner = () => {
     setIsLoading(true);
-    fetch(`https://localhost:7127/api/petregistry/${id}`, {
-      method: "DELETE"
-    })
+    if (!id) {
+      setIsError(true);
+      return;
+    }
+    DeletePetOwner(id)
       .then(() => {
         setIsLoading(false);
         setHasUpdated(true);
@@ -22,16 +27,7 @@ const EditOwner = () => {
   };
   const saveChangesToDb = (petOwnerToSave: PetOwner) => {
     setIsLoading(true);
-    fetch(
-      `https://localhost:7127/api/petregistry/ownerandpets/${petOwnerToSave.id}`,
-      {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(petOwnerToSave)
-      }
-    )
+    PutPetOwner(petOwnerToSave)
       .then(() => {
         setPetOwner(petOwnerToSave);
         setIsLoading(false);
@@ -41,28 +37,30 @@ const EditOwner = () => {
   };
 
   useEffect(() => {
-    fetch(`https://localhost:7127/api/petregistry/ownerandpets/${id}`)
-      .then((response) => response.json())
+    if (!id) {
+      setIsError(true);
+      return;
+    }
+    GetOwnerById(id)
       .then((data) => {
         setPetOwner(data);
         setIsLoading(false);
       })
       .catch((error) => setIsError(true));
-  }, []);
+  }, [id]);
   if (isError) {
-    return <div>An error occured when fetching data. :(</div>;
+    return <div>{Strings.errorText}</div>;
   }
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <div>{Strings.loadingText}</div>;
   }
   if (hasUpdated) {
-    return <div>Success!!!</div>;
+    return <div>{Strings.successText}</div>;
   }
   return (
     <div>
-      <button onClick={deletePetOwner}>Delete</button>
-      EditOwner {"" + id}
       <PetOwnerForm petOwner={petOwner} saveFunction={saveChangesToDb} />
+      <button onClick={deletePetOwner}>{Strings.deletText}</button>
     </div>
   );
 };
