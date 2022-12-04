@@ -1,7 +1,8 @@
-import PetOwner from "./PetOwner";
-import Pet from "./Pet";
+import PetOwner from "../PetOwner";
+import Pet from "../Pet";
 import { useState } from "react";
-import Strings from "./Strings";
+import Strings from "../Strings";
+import "./PetOwnerForm.css";
 
 const PetOwnerForm = ({ petOwner, saveFunction }: PetOwnerProps) => {
   const [pets, setPets] = useState<Pet[]>(petOwner ? petOwner.pets : []);
@@ -34,43 +35,51 @@ const PetOwnerForm = ({ petOwner, saveFunction }: PetOwnerProps) => {
     pets[index].name = petName;
   };
   return (
-    <div>
-      <div>
-        <div>{Strings.firstNameText}</div>
+    <div className="PetOwnerForm">
+      <div className="NameInput">
+        <b>{Strings.firstNameText}</b>
         <input
           type="text"
           placeholder={petOwner ? petOwner.firstName : Strings.firstNameText}
           onChange={(event) => setFirstName(event.target.value)}
         ></input>
       </div>
-      <div>
-        <div>Strings.lastNameText</div>
+      <div className="NameInput">
+        <b>{Strings.lastNameText}</b>
         <input
           type="text"
           placeholder={petOwner ? petOwner.lastName : Strings.lastNameText}
           onChange={(event) => setLastName(event.target.value)}
         ></input>
       </div>
-      <div>Pets:</div>
-      {pets.map((pet, index) => {
-        return (
-          <div key={index}>
-            <div>{Strings.petNameText}</div>
-            <input
-              type="text"
-              placeholder={pet.name}
-              onChange={(event) => changePetName(index, event.target.value)}
-            />
-            <div>
-              <button onClick={() => removePetForm(pet)}>
-                {Strings.removePetText}
-              </button>
+      <div>
+        <h3>{Strings.petsText}</h3>
+        {pets.map((pet, index) => {
+          return (
+            <div key={index} className="NameInput">
+              <div>
+                <b>{Strings.petNameText}</b>
+                <input
+                  type="text"
+                  placeholder={pet.name}
+                  onChange={(event) => changePetName(index, event.target.value)}
+                />
+              </div>
+              <div>
+                <button onClick={() => removePetForm(pet)}>
+                  {Strings.removePetText}
+                </button>
+              </div>
             </div>
-          </div>
-        );
-      })}
-      <button onClick={addPetForm}>{Strings.addPetText}</button>
-      <button onClick={saveToDb}>{Strings.saveText}</button>
+          );
+        })}
+      </div>
+      <div>
+        <button onClick={addPetForm}>{Strings.addPetText}</button>
+      </div>
+      <div>
+        <button onClick={saveToDb}>{Strings.saveText}</button>
+      </div>
     </div>
   );
 };

@@ -1,0 +1,32 @@
+.PetOwner {
+  display: flex;
+  flex-direction: row;
+  min-width: 30vh;
+}
+
+.PetOwnerProperty {
+  margin-left: 1vh;
+}
+
+.EditButton {
+  margin-left: 1vh;
+}
+
+.Container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.Row {
+  display: flex;
+  flex-direction: row;
+}
+
+.Container button {
+  color: brown;
+  background-color: #ffddd2;
+  font-size: calc(10px + 2vmin);
+  border-radius: 1vh;
+  border: none;
+}

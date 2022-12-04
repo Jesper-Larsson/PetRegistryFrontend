@@ -21,7 +21,10 @@ const Strings = {
   searchText: "Search",
   noResultsText: "No results for search term",
   editText: "Edit",
-  welcomeText: "Here you can register pet owners and their pets"
+  welcomeText: "Here you can register pet owners and their pets",
+  editOwnerHeading: "Edit an owner and their pets",
+  petsText: "Pets",
+  resultsText: "Search Results"
 };
 
 export default Strings;

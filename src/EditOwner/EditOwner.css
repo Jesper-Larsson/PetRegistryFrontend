@@ -1,0 +1,6 @@
+.Delete button {
+  color: white;
+  background-color: red;
+  font-size: calc(10px + 2vmin);
+  border-radius: 1vh;
+}

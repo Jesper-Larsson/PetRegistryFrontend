@@ -1,5 +1,5 @@
 import { useState } from "react";
-import PetOwnerForm from "./PetOwnerForm";
+import PetOwnerForm from "./PetOwnerForm/PetOwnerForm";
 import PetOwner from "./PetOwner";
 import { PostPetOwner } from "./PetRegistryAPI";
 import Strings from "./Strings";
@@ -24,8 +24,8 @@ const CreateOwner = () => {
   }
   if (hasUpdated) {
     return (
-      <div>
-        {Strings.successText}
+      <div className="AddAnother">
+        <div>{Strings.successText}</div>
         <button onClick={() => setHasUpdated(false)}>
           {Strings.addAnotherText}
         </button>
@@ -34,7 +34,7 @@ const CreateOwner = () => {
   }
   return (
     <div>
-      {Strings.addOwnerHeading}
+      <h2>{Strings.addOwnerHeading}</h2>
       <PetOwnerForm petOwner={undefined} saveFunction={addToDb} />
     </div>
   );

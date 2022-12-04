@@ -1,0 +1,17 @@
+nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.NavItem {
+  margin: 1vh;
+}
+
+.NavItem button {
+  color: white;
+  background-color: #006d77;
+  font-size: calc(10px + 2vmin);
+  border-radius: 1vh;
+  border: none;
+}

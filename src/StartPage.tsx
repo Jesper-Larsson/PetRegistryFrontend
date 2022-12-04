@@ -2,7 +2,7 @@ import Strings from "./Strings";
 const StartPage = () => {
   return (
     <div>
-      <h1>{Strings.welcomeHeading}</h1>
+      <h2>{Strings.welcomeHeading}</h2>
       <p>{Strings.welcomeText}</p>
     </div>
   );

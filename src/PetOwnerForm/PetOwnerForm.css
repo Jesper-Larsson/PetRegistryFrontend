@@ -1,0 +1,19 @@
+.NameInput input {
+  margin: 2vh;
+  margin-top: 0vh;
+  min-width: 40vh;
+}
+
+.NameInput {
+  margin: 2vh;
+}
+
+.PetOwnerForm button {
+  font-size: calc(10px + 2vmin);
+  border-radius: 1vh;
+}
+
+.BottomButtons {
+  display: flex;
+  flex-direction: column;
+}

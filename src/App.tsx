@@ -1,12 +1,12 @@
 import "./App.css";
 import SearchBar from "./SearchBar/SearchBar";
-import AllOwners from "./AllOwners";
+import AllOwners from "./AllOwners/AllOwners";
 import CreateOwner from "./CreateOwner";
-import EditOwner from "./EditOwner";
+import EditOwner from "./EditOwner/EditOwner";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import StartPage from "./StartPage";
-import NavBar from "./NavBar";
-import SearcResults from "./SearchResults";
+import NavBar from "./NavBar/NavBar";
+import SearcResults from "./AllOwners/SearchResults";
 
 const App = () => {
   return (

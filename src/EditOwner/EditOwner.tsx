@@ -1,9 +1,10 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import PetOwnerForm from "./PetOwnerForm";
-import PetOwner from "./PetOwner";
-import { PutPetOwner, DeletePetOwner, GetOwnerById } from "./PetRegistryAPI";
-import Strings from "./Strings";
+import PetOwnerForm from "../PetOwnerForm/PetOwnerForm";
+import PetOwner from "../PetOwner";
+import { PutPetOwner, DeletePetOwner, GetOwnerById } from "../PetRegistryAPI";
+import Strings from "../Strings";
+import "./EditOwner.css";
 const EditOwner = () => {
   const { id } = useParams();
 
@@ -59,8 +60,11 @@ const EditOwner = () => {
   }
   return (
     <div>
+      <h2>{Strings.editOwnerHeading}</h2>
       <PetOwnerForm petOwner={petOwner} saveFunction={saveChangesToDb} />
-      <button onClick={deletePetOwner}>{Strings.deletText}</button>
+      <div className="Delete">
+        <button onClick={deletePetOwner}>{Strings.deletText}</button>
+      </div>
     </div>
   );
 };

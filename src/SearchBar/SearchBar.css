@@ -1,0 +1,23 @@
+.SearchBar input {
+  background-color: #edf6f9;
+  color: brown;
+  border-top-left-radius: 1vh;
+  border-bottom-left-radius: 1vh;
+  border-top-right-radius: 0vh;
+  border: none;
+  float: left;
+}
+
+.SearchBar button {
+  color: white;
+  background-color: #e29578;
+  border-top-right-radius: 1vh;
+  border-bottom-right-radius: 1vh;
+  border-top-left-radius: 0vh;
+  border-bottom-left-radius: 0vh;
+  float: left;
+}
+
+.SearchBar {
+  display: flex;
+}

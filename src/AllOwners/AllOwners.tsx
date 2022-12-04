@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import PetOwner from "./PetOwner";
-import { GetAllOwners } from "./PetRegistryAPI";
-import Strings from "./Strings";
+import PetOwner from "../PetOwner";
+import { GetAllOwners } from "../PetRegistryAPI";
+import Strings from "../Strings";
+import "./AllOwners.css";
 
 const AllOwners = () => {
   const [allOwners, setAllOwners] = useState<PetOwner[]>([]);
@@ -24,13 +25,19 @@ const AllOwners = () => {
     return <div>{Strings.loadingText}</div>;
   }
   return (
-    <div>
-      <h1>{Strings.allOwnersHeading}</h1>
+    <div className="Container">
+      <h2>{Strings.allOwnersHeading}</h2>
       {allOwners.map((owner, id) => (
-        <div key={id}>
-          <div>{owner.firstName}</div>
-          <div>{owner.lastName}</div>
-          <Link to={`/edit/${owner.id}`}>{Strings.openText}</Link>
+        <div key={id} className="Row">
+          <div className="PetOwner">
+            <div className="PetOwnerProperty">{owner.firstName}</div>
+            <div className="PetOwnerProperty">{owner.lastName}</div>
+          </div>
+          <div className="EditButton">
+            <Link to={`/edit/${owner.id}`}>
+              <button>{Strings.openText}</button>
+            </Link>
+          </div>
         </div>
       ))}
     </div>
