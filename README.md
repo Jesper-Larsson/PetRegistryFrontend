@@ -6,5 +6,5 @@
 
 3. When it's done run the command: npm start
 
-4. You can now view the application on http://localhost:3000/all in your browser!
+4. You can now view the application on http://localhost:3000/ in your browser!
 
