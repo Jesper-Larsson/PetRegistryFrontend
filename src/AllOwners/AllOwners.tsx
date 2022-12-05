@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import PetOwner from "../PetOwner";
-import { GetAllOwners } from "../PetRegistryAPI";
-import Strings from "../Strings";
+import PetOwner from "../Shared/PetOwner";
+import { GetAllOwners } from "../API/PetRegistryAPI";
+import Strings from "../Shared/Strings";
 import "./AllOwners.css";
 
 const AllOwners = () => {

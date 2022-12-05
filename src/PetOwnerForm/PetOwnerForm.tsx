@@ -1,7 +1,7 @@
-import PetOwner from "../PetOwner";
-import Pet from "../Pet";
+import PetOwner from "../Shared/PetOwner";
+import Pet from "../Shared/Pet";
 import { useState } from "react";
-import Strings from "../Strings";
+import Strings from "../Shared/Strings";
 import "./PetOwnerForm.css";
 
 const PetOwnerForm = ({ petOwner, saveFunction }: PetOwnerProps) => {

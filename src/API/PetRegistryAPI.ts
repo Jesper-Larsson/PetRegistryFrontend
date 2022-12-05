@@ -1,4 +1,4 @@
-import PetOwner from "./PetOwner";
+import PetOwner from "../Shared/PetOwner";
 const baseUrl = "https://localhost:7127/api/petregistry";
 const SearchByOwnerName = (searchTerm: string) =>
   fetch(`${baseUrl}/owner/${searchTerm}`).then((response) => response.json());

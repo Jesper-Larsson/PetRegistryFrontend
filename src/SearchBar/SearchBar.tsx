@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import Strings from "../Strings";
+import Strings from "../Shared/Strings";
 import "./SearchBar.css";
 const SearchBar = () => {
   const [searchTerm, setSearchTerm] = useState<string>();

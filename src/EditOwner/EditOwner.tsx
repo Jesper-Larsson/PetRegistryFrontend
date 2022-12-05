@@ -1,9 +1,13 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import PetOwnerForm from "../PetOwnerForm/PetOwnerForm";
-import PetOwner from "../PetOwner";
-import { PutPetOwner, DeletePetOwner, GetOwnerById } from "../PetRegistryAPI";
-import Strings from "../Strings";
+import PetOwner from "../Shared/PetOwner";
+import {
+  PutPetOwner,
+  DeletePetOwner,
+  GetOwnerById
+} from "../API/PetRegistryAPI";
+import Strings from "../Shared/Strings";
 import "./EditOwner.css";
 const EditOwner = () => {
   const { id } = useParams();

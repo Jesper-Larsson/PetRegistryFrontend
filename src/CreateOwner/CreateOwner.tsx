@@ -1,8 +1,8 @@
 import { useState } from "react";
-import PetOwnerForm from "./PetOwnerForm/PetOwnerForm";
-import PetOwner from "./PetOwner";
-import { PostPetOwner } from "./PetRegistryAPI";
-import Strings from "./Strings";
+import PetOwnerForm from "../PetOwnerForm/PetOwnerForm";
+import PetOwner from "../Shared/PetOwner";
+import { PostPetOwner } from "../API/PetRegistryAPI";
+import Strings from "../Shared/Strings";
 const CreateOwner = () => {
   const [isError, setIsError] = useState(false);
   const [isLoading, setIsLoading] = useState(false);

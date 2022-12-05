@@ -1,4 +1,4 @@
-import Strings from "./Strings";
+import Strings from "../Shared/Strings";
 const StartPage = () => {
   return (
     <div>

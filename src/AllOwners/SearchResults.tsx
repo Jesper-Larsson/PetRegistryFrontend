@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import PetOwner from "../PetOwner";
-import { SearchByOwnerName, SearchByPetName } from "../PetRegistryAPI";
-import Strings from "../Strings";
+import PetOwner from "../Shared/PetOwner";
+import { SearchByOwnerName, SearchByPetName } from "../API/PetRegistryAPI";
+import Strings from "../Shared/Strings";
 import "./AllOwners.css";
 
 const SearcResults = () => {
